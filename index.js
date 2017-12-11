@@ -138,7 +138,13 @@ function parseInput(rplyToken, inputStr) {
         //用 / / 框起來的部分就是正則表達式的範圍， ^ 代表句首，所以 ^cc 就代表句首的cc。
         if (inputStr.toLowerCase().match(/^cc/)!= null) return CoC7th(rplyToken, inputStr.toLowerCase()) ;      
         else
-          
+
+	//底下是做為一個擲骰機器人的核心功能。
+        //D&D3.5系統的判定在此，關鍵字是「句首的DnD」，在此的判定使用正則表達式。
+        //用 / / 框起來的部分就是正則表達式的範圍， ^ 代表句首，所以 ^DnD 就代表句首的DnD。
+        if (inputStr.toLowerCase().match(/^DnD/)!= null) return DnD3.5(inputStr.toLowerCase()) ;      
+        else
+		
         //pbta系統判定在此，關鍵字是「句首的pb」。
         if (inputStr.toLowerCase().match(/^pb/)!= null) return pbta(inputStr.toLowerCase()) ;      
         else
